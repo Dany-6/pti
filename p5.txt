@@ -1,0 +1,26 @@
+Ex 5
+OWASP ZAP
+
+Aim
+
+To use OWASP ZAP for web application testing to identify SQL Injection and Cross-Site Scripting (XSS) vulnerabilities.
+
+Algorithm
+
+1. Start Windows and launch OWASP ZAP.
+
+2. Open Quick Start → Automated Scan.
+
+3. Enter the target URL: http://testfire.net
+
+4. Start the scan and allow ZAP to crawl the application.
+
+5. Open the Alerts tab after the scan.
+
+6. Check for SQL Injection and XSS vulnerabilities.
+
+7. Record the risk level, affected URL, parameter, and evidence.
+
+8. Take screenshots of the relevant alerts.
+
+9. Stop the scan and close OWASP ZAP.
