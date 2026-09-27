@@ -1,0 +1,53 @@
+Experiment 1: Dictionary Attack using Hydra
+
+Aim
+
+To perform a dictionary attack against a login form/service using Hydra with the help of wordlists, in order to understand how weak passwords can be cracked and why strong password policies matter.
+
+Algorithm / Procedure
+
+1. Identify the target service (e.g., SSH, FTP, or a web login form) running on the authorized lab machine.
+
+
+2. Prepare or locate a username list and a password wordlist (e.g., the built-in rockyou.txt).
+
+
+3. Open a terminal on the Kali Linux attacker machine.
+
+
+4. Choose the correct Hydra syntax for the target protocol/service.
+
+
+5. Run Hydra, pointing it at the target IP, service, username list, and password wordlist.
+
+
+6. Observe Hydra's output as it tries each combination.
+
+
+7. Record any valid username/password pair that Hydra reports as successful.
+
+
+8. Note the time taken and discuss how a stronger password would have resisted the attack.
+
+
+
+Command / Code
+
+Example 1: SSH login on a lab VM
+
+hydra -l admin -P /usr/share/wordlists/rockyou.txt ssh://192.168.56.101
+
+Example 2: HTTP POST login form (e.g., DVWA)
+
+hydra -l admin -P passwords.txt 192.168.56.101 http-post-form \
+"/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:Invalid username"
+
+Example 3: FTP login
+
+hydra -L users.txt -P passwords.txt ftp://192.168.56.101
+
+Note: Only run this against machines you own or that are provided for lab practice (e.g., Metasploitable2, DVWA). Never target a real/production login page.
+
+Result
+
+The above procedure was successfully executed in the lab environment and the observed output was recorded/verified. (Attach screenshot of your terminal output here.)
