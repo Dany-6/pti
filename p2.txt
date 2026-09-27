@@ -1,0 +1,39 @@
+Experiment 2: Privilege Escalation in Web Applications
+
+Aim
+
+To demonstrate horizontal/vertical privilege escalation in a web application by attempting to access restricted/admin pages without proper authorization, and to understand why server-side access control checks are essential.
+
+Requirements
+
+A lab machine (Kali Linux recommended) with the required tool installed, and an authorized target machine on the same isolated lab network (e.g., Metasploitable2 / DVWA).
+
+Algorithm / Procedure
+
+1. Set up a vulnerable web application in the lab (e.g., DVWA set to 'low' security).
+
+2. Log in as a low-privileged user (e.g., a normal user account).
+
+3. Use browser developer tools / Burp Suite to inspect requests and note the URL pattern of admin-only pages.
+
+4. Directly request an authenticated/admin-only URL while logged in as the low-privilege user (this is called Insecure Direct Object Reference / forced browsing).
+
+5. Observe whether the application grants access it should have blocked.
+
+6. Try modifying a hidden form field or cookie value (e.g., role=user to role-admin) using Burp Suite's Repeater.
+
+7. Resend the modified request and record the application's response.
+
+8. Document the vulnerability and suggest the correct fix (server-side role check on every request).
+
+Sample Command/ Code
+
+# Step 1: Try forced browsing to an admin page while logged in as a normal user http://192.168.56.101/dvwa/admin/dashboard.php
+
+# Step 2: Using curl to send the request with the normal user's session cookie curl -b "PHPSESSID=your_session_id" http: //192.168.56.101/dvwa/admin/dashboard.php
+
+# Step 3: Example of a cookie/parameter tampering attempt (viewed in Burp Suite Repeater) Cookie: PHPSESSID=your_session_id; role=user --> change to --> role=admin
+
+Result
+
+The above procedure was successfully executed in the lab environment and the observed output was recorded/verified. (Attach screenshot of your terminal output here.)
