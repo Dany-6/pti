@@ -1,0 +1,33 @@
+Experiment 10: SNMP Enumeration
+
+Aim
+
+To perform SNMP enumeration on an SNMP-enabled network device in order to extract information such as system details, running services, and network interfaces.
+
+Algorithm / Procedure
+
+1. Identify a lab device/VM with SNMP enabled (commonly using the default 'public' community
+
+string).
+
+2. Open a terminal on the Kali Linux machine.
+
+3. Use a scanning tool (e.g., Nmap) to confirm SNMP (UDP port 161) is open on the target.
+
+4. Use snmpwalk to query the device using the community string.
+
+5. Extract system information (hostname, uptime, OS description).
+
+6. Extract information about running processes, installed software, and network interfaces. 7. Document the information disclosed and recommend hardening steps (change default community strings, use SNMPv3, restrict access).
+
+command
+
+# 1. Check if SNMP (UDP 161) is open on the target nmap -sU-p 161 127.0.0.1
+
+# 2. Enumerate system information using numerical OID snmpwalk -v1 -c public 127.0.0.1
+
+1.3.6.1.2.1.1
+
+Result
+
+The above procedure was successfully executed in the lab environment and the observed output was recorded/verified. (Attach screenshot of your terminal output here.)
