@@ -1,0 +1,50 @@
+ARP Spoofing Using Bettercap - Short Algorithm
+
+Aim: Demonstrate ARP spoofing in an authorized, isolated security-testing lab and observe IP-to-MAC mapping changes.
+
+Algorithm / Procedure
+
+1. Find the lab interface using ip a.
+
+2. Start Bettercap on the authorized interface.
+
+3. Use help to view available modules.
+
+4. Enable device discovery with net.probe on.
+
+5. Check ARP spoofing options with help arp.spoof.
+
+6. Enable full-duplex mode: set arp.spoof.fullduplex true.
+
+7. Set only the authorized Windows lab IP as the target.
+
+8. Start the controlled test with arp.spoof on.
+
+9. On Windows, check mappings using arp -a.
+
+10. Compare the mappings and record changes.
+
+11. Stop spoofing with arp.spoof off.
+
+12. Disable probing, verify arp -a, and confirm connectivity is restored.
+
+Result: ARP spoofing was demonstrated in the authorized lab and IP-to-MAC mappings were observed before, during, and after the test.
+
+Commands
+ip a
+
+sudo bettercap -iface eth0
+
+: help
+
+net.probe on
+
+help arp.spoof
+
+set arp.spoof.fullduplex true
+
+set arp.spoof.target <ip>
+
+arp.spoof on
+
+arp -a
