@@ -1,0 +1,39 @@
+Experiment 4: Vulnerability Scanning using OpenVAS / Nessus
+
+Aim
+
+To perform an automated vulnerability scan on a target system using OpenVAS or Nessus, and to identify and interpret the security weaknesses reported.
+
+Requirements
+
+A lab machine (Kali Linux recommended) with the required tool installed, and an authorized target machine on the same isolated lab network (e.g., Metasploitable2 / DVWA).
+
+Algorithm/ Procedure
+
+1. Install and start the OpenVAS/GVM service (or Nessus) on the Kali/scanner machine.
+
+2. Log in to the OpenVAS/Nessus web interface (usually https://127.0.0.1:9392 or :8834). 3. Create a new Target, entering the IP address of the authorized lab machine to be scanned. 4. Create a new Task/Scan, selecting a scan configuration (e.g., 'Full and Fast'). 5. Start the scan and wait for it to complete (this can take several minutes). 6. Open the scan Report once finished.
+
+7. Review vulnerabilities by severity (Critical/High/Medium/Low) along with CVE references. 8. Document at least 2-3 key findings and recommended remediations.
+
+Sample Command / Code
+
+# Start the GVM/OpenVAS services (Kali Linux) sudo gvm-start
+
+# Check service status
+
+sudo gvm-check-setup
+
+# Access the web UI in a browser
+
+https://127.0.0.1:9392
+
+# Command-line scan alternative using gvm-cli (after authentication is set up)
+
+gvm-cli socket -xml \
+
+"<create_target><name>LabTarget</name><hosts>192.168.56.101</hosts></create_target>
+
+Result
+
+The above procedure was successfully executed in the lab environment and the observed output was recorded/verified. (Attach screenshot of your terminal output here.)
