@@ -1,0 +1,37 @@
+Experiment 9: Denial-of-Service (DoS) Simulation using Hping3
+
+Aim
+
+To simulate a basic Denial-of-Service condition in a controlled lab environment using Hping3, and to observe its impact on a target machine's resource usage.
+
+Algorithm/Procedure
+
+1. Set up an isolated lab network with an attacker VM and a disposable target VM (never a shared/production system).
+
+2. Open a terminal on the attacker (Kali) machine.
+
+3. Start monitoring the target's CPU/network usage (e.g., using 'top' or Task Manager on the target).
+
+4. Use Hping3 to send a high rate of crafted packets (e.g., SYN flood) to the target's IP/port.
+
+5. Observe the target's resource usage and responsiveness while the flood is running.
+
+6. Stop the Hping3 flood (Ctrl+C) after observing the effect.
+
+7. Record how the target's performance was impacted and recovered.
+
+8. Discuss mitigations (rate limiting, SYN cookies, firewalls, IDS/IPS).
+
+Sample Command / Code
+
+# SYN flood simulation against a lab target on port 80 hping3 -S -p 80 -flood -c 10000 192.168.56.101
+
+# Flood with random source IP addresses (for demonstrating spoofing concept) hping3 -S -p 80 flood -rand-source 192.168.56.101
+
+# Simple ICMP flood for comparison
+
+hping3 -1-flood 192.168.56.101
+
+Result
+
+The above procedure was successfully executed in the lab environment and the observed output was recorded/verified. (Attach screenshot of your terminal output here.)
