@@ -1,0 +1,35 @@
+Experiment 3: Ping Sweep to Identify Active Hosts
+
+5G
+
+Aim
+
+To conduct a ping sweep across a subnet in order to identify which hosts on the lab network are currently active (up).
+
+Requirements
+
+A lab machine (Kali Linux recommended) with the required tool installed, and an authorized target machine on the same isolated lab network (e.g., Metasploitable2 /DVWA).
+
+Algorithm / Procedure
+
+1. Identify the network/subnet used in the lab (e.g., 192.168.56.0/24).
+
+2. Open a terminal on the Kali Linux machine.
+
+3. Use Nmap's ping-scan option (-sn) to send ICMP echo requests to every address in the subnet.
+
+4. Alternatively use a simple bash for-loop with the ping command.
+
+5. Record which IP addresses responded (are 'up').
+
+6. Compare the discovered hosts with the known lab machines to verify completeness.
+
+Sample Command / Code
+
+# Using Nmap for a ping sweep (no port scan, host discovery only) nmap -sn 192.168.56.0/24
+
+# Alternative: simple bash loop using ping for ip in 192.168.56. (1..254); do ping -c 1 -W 1 $ip >/dev/null && echo "$ip is up" done
+
+Result
+
+The above procedure was successfully executed in the lab environment and the observed output was recorded/verified. (Attach screenshot of your terminal output here.)
