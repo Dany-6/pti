@@ -1,0 +1,45 @@
+Experiment 6: SSL/TLS Vulnerability Analysis using sslscan
+
+Aim
+
+To analyze the SSL/TLS configuration of a website/server using sslscan, in order to detect weak protocols, weak ciphers, and certificate issues.
+
+Algorithm
+
+1. Identify the target HTTPS server/IP in the lab environment.
+
+
+2. Open a terminal on the Kali Linux machine.
+
+
+3. Run sslscan against the target host and port (usually 443).
+
+
+4. Review the supported SSL/TLS protocol versions.
+
+
+5. Review the supported cipher suites for weak/export ciphers.
+
+
+6. Check the certificate details such as validity period, key length, and signature algorithm.
+
+
+7. Document the weaknesses found and the recommended secure configuration.
+
+
+
+Command
+
+sslscan 192.168.56.101:443
+
+To save the results:
+
+sslscan --show-certificate 192.168.56.101:443 > sslscan_report.txt
+
+Alternative:
+
+testssl.sh https://192.168.56.101
+
+Result
+
+The SSL/TLS configuration of the target server was successfully analyzed using sslscan. The supported protocols, cipher suites, and certificate details were checked, and the observed vulnerabilities/weak configurations were recorded.
